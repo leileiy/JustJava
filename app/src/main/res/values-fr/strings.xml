@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Café Java</string>
+    <string name="chocolate">Chocolat</string>
+    <string name="order_summary_name">Nom:</string>
+    <string name="order">Ordre</string>
+    <string name="quantity">Quantité</string>
+    <string name="toppings">Garnitures</string>
+    <string name="order_summary_chocolate">Ajouter le chocolat? </string>
+    <string name="email_subject_confirmation">Café pour vous</string>
+    <string name="order_name">Nom Ordre</string>
+    <string name="whipped_cream">Crème Fouettée</string>
+    <string name="thank_you">Merci!</string>
+    <string name="order_summary_whipped_cream">Ajouter la crème fouettée? </string>
+    <string name="thankyou"></string>
+    <string name="order_summary_price">Prix</string>
+</resources>
