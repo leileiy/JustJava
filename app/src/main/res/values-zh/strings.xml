@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Just Java 咖啡</string>
     <string name="order">订购</string>
     <string name="chocolate">巧克力</string>
-    <string name="quantity">数量</string>
     <string name="toppings">浇头</string>
-    <string name="order_summary_name">名字:</string>
-    <string name="order_summary_chocolate">加入巧克力? </string>
-    <string name="email_subject_confirmation">咖啡为</string>
-    <string name="order_name">名字</string>
+    <string name="order_summary_name">名字: <xliff:g example="Amy" id="customerName">%s</xliff:g></string>
+    <string name="order_summary_chocolate">加入巧克力? <xliff:g example="true" id="addChocolate">%b</xliff:g></string>
     <string name="whipped_cream">奶油</string>
-    <string name="thank_you">谢谢！</string>
-    <string name="order_summary_whipped_cream">添加奶油？</string>
-    <string name="thankyou"></string>
-    <string name="order_summary_price">价钱</string>
+    <string name="order_summary_whipped_cream">添加奶油？<xliff:g example="true" id="addWhippedCream">%b</xliff:g></string>
+    <string name="order_summary_price">价钱: <xliff:g example="$10" id="price">%s</xliff:g></string>
+    <string name="num_of_cups">数量: <xliff:g example="2" id="quantity">%s</xliff:g></string>
+    <string name="order_summary_thank_you">谢谢！</string>
+    <string name="quantity">数量</string>
+    <string name="customer_name">名字</string>
+    <string name="order_summary_email_subject">咖啡为<xliff:g example="Amy" id="customerName">%s</xliff:g></string>
+    <string name="call_store_to_order_over_100_cups">打电话店订购100杯.</string>
+    <string name="no_coffee_ordered">没有咖啡定购.</string>
 </resources>

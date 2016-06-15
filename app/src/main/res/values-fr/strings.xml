@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Café Java</string>
     <string name="chocolate">Chocolat</string>
-    <string name="order_summary_name">Nom:</string>
+    <string name="order_summary_name">Nom: <xliff:g example="Amy" id="customerName">%s</xliff:g></string>
     <string name="order">Ordre</string>
-    <string name="quantity">Quantité</string>
     <string name="toppings">Garnitures</string>
-    <string name="order_summary_chocolate">Ajouter le chocolat? </string>
-    <string name="email_subject_confirmation">Café pour vous</string>
-    <string name="order_name">Nom Ordre</string>
+    <string name="order_summary_chocolate">Ajouter le chocolat? <xliff:g example="true" id="addChocolate">%b</xliff:g></string>
     <string name="whipped_cream">Crème Fouettée</string>
-    <string name="thank_you">Merci!</string>
-    <string name="order_summary_whipped_cream">Ajouter la crème fouettée? </string>
-    <string name="thankyou"></string>
-    <string name="order_summary_price">Prix</string>
+    <string name="order_summary_whipped_cream">Ajouter la crème fouettée? <xliff:g example="true" id="addWhippedCream">%b</xliff:g></string>
+    <string name="order_summary_price">Prix: <xliff:g example="$10" id="price">%s</xliff:g></string>
+    <string name="num_of_cups">Quantité: <xliff:g example="2" id="quantity">%s</xliff:g></string>
+    <string name="order_summary_thank_you">Merci!</string>
+    <string name="quantity">Quantité</string>
+    <string name="customer_name">Nom Ordre</string>
+    <string name="order_summary_email_subject">Café pour vous <xliff:g example="Amy" id="customerName">%s</xliff:g></string>
+    <string name="call_store_to_order_over_100_cups">Appeler le magasin pour commander plus de 100 tasses.</string>
+    <string name="no_coffee_ordered">Pas de café commandé.</string>
 </resources>

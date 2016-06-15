@@ -14,6 +14,8 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.text.NumberFormat;
+
 /**
  * This app displays an order form to order coffee.
  */
@@ -40,16 +42,16 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        EditText customerNameInputField = (EditText)findViewById(R.id.customer_name_view);
+        EditText customerNameInputField = (EditText) findViewById(R.id.customer_name_view);
         String customerName = customerNameInputField.getText().toString();
         //Log.v("Main Activity", "Customer Name:" + customerName);
 
-        CheckBox whippedCreamCheckbox = (CheckBox)findViewById(R.id.whipped_cream_checkout);
+        CheckBox whippedCreamCheckbox = (CheckBox) findViewById(R.id.whipped_cream_checkout);
         boolean hasWhippedCream = whippedCreamCheckbox.isChecked();
-       // Log.v("Main Activity", "Has whipped cream:" + hasWhippedCream);
+        // Log.v("Main Activity", "Has whipped cream:" + hasWhippedCream);
 
 
-        CheckBox chocolateCheckbox = (CheckBox)findViewById(R.id.chocolate_checkout);
+        CheckBox chocolateCheckbox = (CheckBox) findViewById(R.id.chocolate_checkout);
         boolean hasChocolate = chocolateCheckbox.isChecked();
         //Log.v("Main Activity", "Has chocolate:" + hasChocolate);
 
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Coffee Order for " + customerName);
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.order_summary_email_subject, customerName));
         intent.putExtra(Intent.EXTRA_TEXT, priceMessage);
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
@@ -98,13 +100,12 @@ public class MainActivity extends AppCompatActivity {
     public void increment(View view) {
 
         if (quantity >= 100) {
-            Toast.makeText(this, "Call store to order over 100 cups", Toast.LENGTH_SHORT).show();
-            return;
+            Toast.makeText(this, R.string.call_store_to_order_over_100_cups, Toast.LENGTH_SHORT).show();
         } else {
             quantity += 1;
             displayQuantity(quantity);
         }
-        ;
+
     }
 
     /**
@@ -112,13 +113,12 @@ public class MainActivity extends AppCompatActivity {
      */
     public void decrement(View view) {
         if (quantity < 1) {
-            Toast.makeText(this, "No coffee ordered", Toast.LENGTH_SHORT).show();
-            return;
+            Toast.makeText(this, R.string.no_coffee_ordered, Toast.LENGTH_SHORT).show();
         } else {
             quantity -= 1;
             displayQuantity(quantity);
         }
-        ;
+
     }
 
 
@@ -132,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     /**
      * This method is called when the order button is clicked to create a summary of the order.
      *
@@ -142,12 +141,12 @@ public class MainActivity extends AppCompatActivity {
      */
 
     private String createOrderSummary(int price, boolean addWhippedCream, boolean addChocolate, String customerName) {
-        String priceMessage = customerName;
-        priceMessage += "\nAdd whipped cream? " + addWhippedCream;
-        priceMessage += "\nAdd chocolate? " + addChocolate;
-        priceMessage += "\n Quantity: " + quantity;
-        priceMessage += "\nTotal: $" + price;
-        priceMessage += "\nThank You!";
+        String priceMessage = getString(R.string.order_summary_name, customerName);
+        priceMessage += "\n" + getString(R.string.order_summary_whipped_cream, addWhippedCream);
+        priceMessage += "\n" + getString(R.string.order_summary_chocolate, addChocolate);
+        priceMessage += "\n" + getString(R.string.num_of_cups, quantity);
+        priceMessage += "\n" + getString(R.string.order_summary_price, NumberFormat.getCurrencyInstance().format(price));
+        priceMessage += "\n" + getString(R.string.order_summary_thank_you);
         return priceMessage;
     }
 
